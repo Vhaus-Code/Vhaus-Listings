@@ -1,0 +1,34 @@
+{
+    "techMediaTelecoms": {
+        "friendlyName": "Technology, Media & Telecommunications",
+        "listings": [
+            {
+                "businessName": "Vhaus Code",
+                "servicesOffered": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec gravida nisl, vitae mattis sem. Aliquam nec sapien est. Maecenas ac condimentum massa. Maecenas pellentesque sodales nibh, nec viverra neque accumsan sed. In eu lobortis elit. Etiam mauris massa, rutrum consectetur ullamcorper ut, consectetur eget lorem. Pellentesque rhoncus metus dictum sapien ultricies, et imperdiet neque vulputate. Mauris pharetra vitae ligula nec convallis.",
+                "contactPerson": "John Doe",
+                "contactNo": "08239812382",
+                "mobileNo": "08239812382",
+                "emailAddress": "08239812382",
+                "address": "Langenhoven Street",
+                "suburb": "Montgomery Park",
+                "website": "www.vhaus.co.za"
+            }
+        ]
+    },
+    "publicSector": {
+        "friendlyName": "Public Sector",
+        "listings": []
+    },
+    "healthCare": {
+        "friendlyName": "Health Care",
+        "listings": []
+    },
+    "financialServices": {
+        "friendlyName": "Financial Services",
+        "listings": []
+    },
+    "energyResources": {
+        "friendlyName": "Energy & Resources",
+        "listings": []
+    },
+}
