@@ -1,6 +1,6 @@
-{
-    "techMediaTelecoms": {
-        "friendlyName": "Technology, Media & Telecommunications",
+[
+    {
+        "industry": "Technology, Media & Telecommunications",
         "listings": [
             {
                 "businessName": "Vhaus Code",
@@ -15,20 +15,20 @@
             }
         ]
     },
-    "publicSector": {
-        "friendlyName": "Public Sector",
+    {
+        "industry": "Public Sector",
         "listings": []
     },
-    "healthCare": {
-        "friendlyName": "Health Care",
+    {
+        "industry": "Health Care",
         "listings": []
     },
-    "financialServices": {
-        "friendlyName": "Financial Services",
+    {
+        "industry": "Financial Services",
         "listings": []
     },
-    "energyResources": {
-        "friendlyName": "Energy & Resources",
+    {
+        "industry": "Energy & Resources",
         "listings": []
-    },
-}
+    }
+]
