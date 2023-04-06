@@ -40,9 +40,10 @@ export default function SearchBox(props) {
               label="Category"
               onChange={props.handleInputChange}
             >
-              {listings.map((item) => {
-                return item(
+              {listings.map((item, key) => {
+                return (
                   <MenuItem
+                    key={key}
                     value={item.industry.toUpperCase().split(" ").join("_")}
                   >
                     {item.industry}

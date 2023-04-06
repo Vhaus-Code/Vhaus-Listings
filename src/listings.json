@@ -1,19 +1,7 @@
 [
     {
         "industry": "Technology, Media & Telecommunications",
-        "listings": [
-            {
-                "businessName": "Vhaus Code",
-                "servicesOffered": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec gravida nisl, vitae mattis sem. Aliquam nec sapien est. Maecenas ac condimentum massa. Maecenas pellentesque sodales nibh, nec viverra neque accumsan sed. In eu lobortis elit. Etiam mauris massa, rutrum consectetur ullamcorper ut, consectetur eget lorem. Pellentesque rhoncus metus dictum sapien ultricies, et imperdiet neque vulputate. Mauris pharetra vitae ligula nec convallis.",
-                "contactPerson": "John Doe",
-                "contactNo": "08239812382",
-                "mobileNo": "08239812382",
-                "emailAddress": "08239812382",
-                "address": "Langenhoven Street",
-                "suburb": "Montgomery Park",
-                "website": "www.vhaus.co.za"
-            }
-        ]
+        "listings": []
     },
     {
         "industry": "Public Sector",
@@ -30,5 +18,58 @@
     {
         "industry": "Energy & Resources",
         "listings": []
+    },
+    {
+        "industry": "Home industries",
+        "listings": []
+    },
+    {
+        "industry": "Plumbing",
+        "listings": [
+            {
+                "businessName": "Abel Plumber",
+                "servicesOffered": "plumbing",
+                "contactPerson": "Abel",
+                "contactNo": "0730671893",
+                "mobileNo": "0782544548",
+                "emailAddress": "mail@mail.com",
+                "address": "",
+                "suburb": "",
+                "website": ""
+            },
+            {
+                "businessName": "Plumber Edward",
+                "servicesOffered": "plumbing, pvc, ceilings, cornice",
+                "contactPerson": "Edward",
+                "contactNo": "0719376514",
+                "mobileNo": "",
+                "emailAddress": "",
+                "address": "",
+                "suburb": "",
+                "website": ""
+            },
+            {
+                "businessName": "Plumber Muhammed",
+                "servicesOffered": "plumbing",
+                "contactPerson": "Muhammed",
+                "contactNo": "0727035748",
+                "mobileNo": "",
+                "emailAddress": "",
+                "address": "",
+                "suburb": "",
+                "website": ""
+            },
+            {
+                "businessName": "UK Plumbing & Roofing & Gutters",
+                "servicesOffered": "plumbing, roofing, gutter",
+                "contactPerson": "Khaalid Aziz",
+                "contactNo": "0835961288",
+                "mobileNo": "0762567474",
+                "emailAddress": "",
+                "address": "",
+                "suburb": "",
+                "website": ""
+            }
+        ]
     }
 ]

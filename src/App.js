@@ -21,10 +21,14 @@ export default function App() {
 
   function handleInputChange(event) {
     const value = event.target.value;
-    const industryFilter = listings.filter((item) =>
-      item.industry.toLowerCase().includes(value)
-    );
-    // const listingsFilter = industryFilter
+    const industryFilter = listings.map((item) => ({
+      ...item,
+      listings: item.listings.filter(
+        (list) =>
+          list.businessName.toLowerCase().includes(value) ||
+          list.servicesOffered.toLowerCase().includes(value)
+      ),
+    }));
     setState({
       ...state,
       searchString: value,
@@ -41,11 +45,11 @@ export default function App() {
           <SearchBox handleInputChange={handleInputChange} />
           <Grid container spacing={2}>
             {state.listingsData.map((industry, key) => {
-              return (
+              return industry.listings.map((listItem, key) => (
                 <Grid item xs={12} md={4} key={key}>
-                  <ListGroup industryList={industry} />
+                  <ListGroup key={key} listItem={listItem} />
                 </Grid>
-              );
+              ));
             })}
           </Grid>
           <CopyrightFooter sx={{ mt: 5 }} />
@@ -53,10 +57,4 @@ export default function App() {
       </ThemeProvider>
     </div>
   );
-}
-
-function getListItems(filterValue) {
-  listings.filter((item) => {
-    return item.industry.toLowerCase().includes(filterValue);
-  });
 }
