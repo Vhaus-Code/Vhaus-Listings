@@ -14,6 +14,7 @@ export default function SearchBox(props) {
     <Box
       sx={{
         mt: 4,
+        mb: 4,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -38,7 +39,7 @@ export default function SearchBox(props) {
               id="demo-simple-select"
               value={props.search}
               label="Category"
-              onChange={props.handleInputChange}
+              onChange={props.handleSelectChange}
             >
               {listings.map((item, key) => {
                 return (
@@ -54,9 +55,6 @@ export default function SearchBox(props) {
           </FormControl>
         </Grid>
       </Grid>
-      <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 5 }}>
-        Search
-      </Button>
     </Box>
   );
 }

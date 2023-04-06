@@ -34,20 +34,23 @@ export default function ListGroup(props) {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: randomColor() }} aria-label="hello">
-            R
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
         title={businessName}
         subheader={servicesOffered}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Hello worlds a.s.as.d.asd.ds
+          {address ? "Address: " + address : null}
+          {suburb ? "Suburb: " + suburb : null}
         </Typography>
       </CardContent>
       <CardActions>
@@ -57,7 +60,7 @@ export default function ListGroup(props) {
           contactPerson={contactPerson}
         />
         <EmailButton emailAddress={emailAddress} />
-        <Button size="small">Learn More</Button>
+        <WebsiteButton website={website} />
       </CardActions>
     </Card>
   );
@@ -68,6 +71,17 @@ function randomColor() {
   return "#" + hex.toString(16);
 }
 
+const WebsiteButton = ({ website }) => {
+  if (website) {
+    return (
+      <>
+        <Button size="small" href={website}>
+          Website
+        </Button>
+      </>
+    );
+  }
+};
 const EmailButton = ({ emailAddress }) => {
   if (emailAddress) {
     return (

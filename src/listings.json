@@ -24,6 +24,24 @@
         "listings": []
     },
     {
+        "industry": "Locksmith",
+        "listings": [
+            {
+                "businessName": "Afzal Locksmith",
+                "servicesOffered": "locksmith",
+                "contactPerson": "Afzal",
+                "contactNo": "0746996347"
+            },
+            {
+                "businessName": "AMS Locksmith",
+                "servicesOffered": "locksmith",
+                "contactPerson": "AMS",
+                "contactNo": "0110217329",
+                "mobileNo": "0824541370"
+            }
+        ]
+    },
+    {
         "industry": "Plumbing",
         "listings": [
             {
@@ -35,7 +53,7 @@
                 "emailAddress": "mail@mail.com",
                 "address": "",
                 "suburb": "",
-                "website": ""
+                "website": "https://www.vhaus.co.za"
             },
             {
                 "businessName": "Plumber Edward",

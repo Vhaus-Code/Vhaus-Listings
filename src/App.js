@@ -21,12 +21,33 @@ export default function App() {
 
   function handleInputChange(event) {
     const value = event.target.value;
+    let industryFilter;
+    if (value) {
+      industryFilter = state.listingsData.map((item) => ({
+        ...item,
+        listings: item.listings.filter(
+          (list) =>
+            list.businessName.toLowerCase().includes(value.toLowerCase()) ||
+            list.servicesOffered.toLowerCase().includes(value.toLowerCase())
+        ),
+      }));
+    } else {
+      industryFilter = listings;
+    }
+    setState({
+      ...state,
+      searchString: value,
+      listingsData: industryFilter,
+    });
+  }
+  function handleSelectChange(event) {
+    const value = event.target.value;
     const industryFilter = listings.map((item) => ({
       ...item,
       listings: item.listings.filter(
         (list) =>
-          list.businessName.toLowerCase().includes(value) ||
-          list.servicesOffered.toLowerCase().includes(value)
+          list.businessName.toLowerCase().includes(value.toLowerCase()) ||
+          list.servicesOffered.toLowerCase().includes(value.toLowerCase())
       ),
     }));
     setState({
@@ -42,7 +63,10 @@ export default function App() {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="lg">
-          <SearchBox handleInputChange={handleInputChange} />
+          <SearchBox
+            handleInputChange={handleInputChange}
+            handleSelectChange={handleSelectChange}
+          />
           <Grid container spacing={2}>
             {state.listingsData.map((industry, key) => {
               return industry.listings.map((listItem, key) => (
@@ -52,7 +76,7 @@ export default function App() {
               ));
             })}
           </Grid>
-          <CopyrightFooter sx={{ mt: 5 }} />
+          <CopyrightFooter />
         </Container>
       </ThemeProvider>
     </div>
