@@ -7,8 +7,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import listings from "../listings.json";
 
-export default function SearchBox() {
+export default function SearchBox(props) {
   return (
     <Box
       sx={{
@@ -23,9 +24,10 @@ export default function SearchBox() {
           <TextField
             fullWidth
             id="searchText"
+            value={props.search}
             label="Search"
             name="Search String"
-            autoComplete="email"
+            onChange={props.handleInputChange}
           />
         </Grid>
         <Grid item xs={6}>
@@ -34,13 +36,19 @@ export default function SearchBox() {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              //   value={age}
-              label="Age"
-              //   onChange={handleChange}
+              value={props.search}
+              label="Category"
+              onChange={props.handleInputChange}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {listings.map((item) => {
+                return item(
+                  <MenuItem
+                    value={item.industry.toUpperCase().split(" ").join("_")}
+                  >
+                    {item.industry}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </Grid>

@@ -1,14 +1,14 @@
 import { Avatar, Card, CardHeader, IconButton } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { red } from "@mui/material/colors";
 
 import * as React from "react";
-export default function ListGroup(...props) {
+export default function ListGroup(props) {
+  const { industry, listings } = props.industryList;
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="hello">
+          <Avatar sx={{ bgcolor: randomColor() }} aria-label="hello">
             R
           </Avatar>
         }
@@ -17,9 +17,14 @@ export default function ListGroup(...props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Hello world"
-        subheader="Hello subhead"
+        title={industry}
+        subheader={listings.length}
       />
     </Card>
   );
+}
+
+function randomColor() {
+  let hex = Math.floor(Math.random() * 0xffffff);
+  return "#" + hex.toString(16);
 }
