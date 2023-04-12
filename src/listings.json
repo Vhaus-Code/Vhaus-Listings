@@ -1,6 +1,7 @@
 [
     {
         "industry": "Technology, Media & Telecommunications",
+        "colorCode": "#bbe7a0",
         "listings": []
     },
     {
@@ -25,16 +26,17 @@
     },
     {
         "industry": "Locksmith",
+        "colorCode": "#bbe7a0",
         "listings": [
             {
                 "businessName": "Afzal Locksmith",
-                "servicesOffered": "locksmith",
+                "servicesOffered": "Locksmith",
                 "contactPerson": "Afzal",
                 "contactNo": "0746996347"
             },
             {
                 "businessName": "AMS Locksmith",
-                "servicesOffered": "locksmith",
+                "servicesOffered": "Locksmith",
                 "contactPerson": "AMS",
                 "contactNo": "0110217329",
                 "mobileNo": "0824541370"
@@ -46,7 +48,7 @@
         "listings": [
             {
                 "businessName": "Abel Plumber",
-                "servicesOffered": "plumbing",
+                "servicesOffered": "Plumbing",
                 "contactPerson": "Abel",
                 "contactNo": "0730671893",
                 "mobileNo": "0782544548",
@@ -57,18 +59,18 @@
             },
             {
                 "businessName": "Plumber Edward",
-                "servicesOffered": "plumbing, pvc, ceilings, cornice",
+                "servicesOffered": "Plumbing, PVC, Ceilings, Cornice",
                 "contactPerson": "Edward",
                 "contactNo": "0719376514",
                 "mobileNo": "",
                 "emailAddress": "",
-                "address": "",
-                "suburb": "",
+                "address": "1831 2387123 kalksd",
+                "suburb": "Hello",
                 "website": ""
             },
             {
                 "businessName": "Plumber Muhammed",
-                "servicesOffered": "plumbing",
+                "servicesOffered": "Plumbing",
                 "contactPerson": "Muhammed",
                 "contactNo": "0727035748",
                 "mobileNo": "",
@@ -79,7 +81,7 @@
             },
             {
                 "businessName": "UK Plumbing & Roofing & Gutters",
-                "servicesOffered": "plumbing, roofing, gutter",
+                "servicesOffered": "Plumbing, Roofing, Gutter",
                 "contactPerson": "Khaalid Aziz",
                 "contactNo": "0835961288",
                 "mobileNo": "0762567474",

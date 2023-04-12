@@ -1,5 +1,4 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -10,6 +9,7 @@ import Select from "@mui/material/Select";
 import listings from "../listings.json";
 
 export default function SearchBox(props) {
+  var searchValue = props.searchCategory ? props.searchCategory : "ALL";
   return (
     <Box
       sx={{
@@ -25,7 +25,7 @@ export default function SearchBox(props) {
           <TextField
             fullWidth
             id="searchText"
-            value={props.search}
+            defaultValue={props.searchString}
             label="Search"
             name="Search String"
             onChange={props.handleInputChange}
@@ -33,20 +33,20 @@ export default function SearchBox(props) {
         </Grid>
         <Grid item xs={6}>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <InputLabel id="category-select">Category</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={props.search}
+              labelId="category-select"
+              id="category-select"
+              value={searchValue}
               label="Category"
               onChange={props.handleSelectChange}
             >
+              <MenuItem key="ALL" value="ALL">
+                -- All Categories--
+              </MenuItem>
               {listings.map((item, key) => {
                 return (
-                  <MenuItem
-                    key={key}
-                    value={item.industry.toUpperCase().split(" ").join("_")}
-                  >
+                  <MenuItem key={key} value={item.industry}>
                     {item.industry}
                   </MenuItem>
                 );

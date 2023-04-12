@@ -14,7 +14,6 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import * as React from "react";
 export default function ListGroup(props) {
@@ -30,28 +29,42 @@ export default function ListGroup(props) {
     website,
   } = props.listItem;
   return (
-    <Card key={businessName}>
+    <Card key={businessName} style={{ height: "100%" }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: randomColor() }} aria-label="hello">
+          <Avatar sx={{ bgcolor: AvatarColor(props.colorCode) }}>
             <IconButton aria-label="settings">
-              <MoreVertIcon />
+              <Typography variant="body2" color="text.secondary">
+                {businessName.charAt(0) + businessName.toUpperCase().charAt(1)}
+              </Typography>
             </IconButton>
           </Avatar>
         }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
         title={businessName}
         subheader={servicesOffered}
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {address ? "Address: " + address : null}
-          {suburb ? "Suburb: " + suburb : null}
-        </Typography>
+        {address ? (
+          <>
+            <Typography variant="body2" color="text.secondary" display="inline">
+              Address:&nbsp;
+            </Typography>
+            <Typography variant="body1" color="text.primary" display="inline">
+              {address}
+            </Typography>
+          </>
+        ) : null}
+        {suburb ? (
+          <>
+            <br mt={4} />
+            <Typography variant="body2" color="text.secondary" display="inline">
+              Suburb:&nbsp;
+            </Typography>
+            <Typography variant="body1" color="text.primary" display="inline">
+              {suburb}
+            </Typography>
+          </>
+        ) : null}
       </CardContent>
       <CardActions>
         <CallButton
@@ -66,7 +79,10 @@ export default function ListGroup(props) {
   );
 }
 
-function randomColor() {
+function AvatarColor(colorCode) {
+  if (colorCode) {
+    return colorCode;
+  }
   let hex = Math.floor(Math.random() * 0xffffff);
   return "#" + hex.toString(16);
 }
@@ -130,13 +146,25 @@ const CallDialog = ({ open, onClose, contactNo, mobileNo, contactPerson }) => {
       <List>
         <ListItem disablePadding>
           <ListItemButton href={`tel:${contactNo}`}>
-            <ListItemText>Primary: {contactNo}</ListItemText>
+            <ListItemText>
+              <Typography variant="body2" color="text.primary" display="inline">
+                Primary:&nbsp;{contactNo}
+              </Typography>
+            </ListItemText>
           </ListItemButton>
         </ListItem>
         {mobileNo ? (
           <ListItem disablePadding>
             <ListItemButton href={`tel:${mobileNo}`}>
-              <ListItemText>Secondary: {mobileNo}</ListItemText>
+              <ListItemText>
+                <Typography
+                  variant="body2"
+                  color="text.primary"
+                  display="inline"
+                >
+                  Secondary:&nbsp;{mobileNo}
+                </Typography>
+              </ListItemText>
             </ListItemButton>
           </ListItem>
         ) : null}
