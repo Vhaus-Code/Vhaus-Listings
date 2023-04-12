@@ -52,10 +52,10 @@
                 "contactPerson": "Abel",
                 "contactNo": "0730671893",
                 "mobileNo": "0782544548",
-                "emailAddress": "mail@mail.com",
+                "emailAddress": "",
                 "address": "",
                 "suburb": "",
-                "website": "https://www.vhaus.co.za"
+                "website": ""
             },
             {
                 "businessName": "Plumber Edward",
@@ -64,8 +64,8 @@
                 "contactNo": "0719376514",
                 "mobileNo": "",
                 "emailAddress": "",
-                "address": "1831 2387123 kalksd",
-                "suburb": "Hello",
+                "address": "",
+                "suburb": "",
                 "website": ""
             },
             {

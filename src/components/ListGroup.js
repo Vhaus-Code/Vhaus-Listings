@@ -8,6 +8,7 @@ import {
   Dialog,
   DialogTitle,
   IconButton,
+  Link,
   List,
   ListItem,
   ListItemButton,
@@ -45,17 +46,27 @@ export default function ListGroup(props) {
       />
       <CardContent>
         {address ? (
-          <>
+          <Link
+            href={`http://maps.google.com/?q=${address}+${suburb}`}
+            target="_blank"
+            underline="hover"
+            rel="noopener"
+          >
             <Typography variant="body2" color="text.secondary" display="inline">
               Address:&nbsp;
             </Typography>
             <Typography variant="body1" color="text.primary" display="inline">
               {address}
             </Typography>
-          </>
+          </Link>
         ) : null}
         {suburb ? (
-          <>
+          <Link
+            href={`http://maps.google.com/?q=${address}+${suburb}`}
+            target="_blank"
+            underline="hover"
+            rel="noopener"
+          >
             <br mt={4} />
             <Typography variant="body2" color="text.secondary" display="inline">
               Suburb:&nbsp;
@@ -63,7 +74,7 @@ export default function ListGroup(props) {
             <Typography variant="body1" color="text.primary" display="inline">
               {suburb}
             </Typography>
-          </>
+          </Link>
         ) : null}
       </CardContent>
       <CardActions>
@@ -90,22 +101,18 @@ function AvatarColor(colorCode) {
 const WebsiteButton = ({ website }) => {
   if (website) {
     return (
-      <>
-        <Button size="small" href={website}>
-          Website
-        </Button>
-      </>
+      <Button size="small" href={website} target="_blank">
+        Website
+      </Button>
     );
   }
 };
 const EmailButton = ({ emailAddress }) => {
   if (emailAddress) {
     return (
-      <>
-        <Button size="small" href={`mailto:${emailAddress}`}>
-          Email
-        </Button>
-      </>
+      <Button size="small" href={`mailto:${emailAddress}`}>
+        Email
+      </Button>
     );
   }
 };
