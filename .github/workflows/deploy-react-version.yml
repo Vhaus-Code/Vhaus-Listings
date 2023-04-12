@@ -1,4 +1,4 @@
-name: DeployReactOnMaster
+name: Deploy react app to github pages
 on:
   push:
     branches:
