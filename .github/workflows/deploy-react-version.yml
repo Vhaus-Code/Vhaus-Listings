@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 9.x]
+        node-version: [8.x, 9.x, 10.x, 12.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install NPM packages
-      run: npm install
-    - name: Deploy to GH pages
-      run: npm run deploy
-    - name: Update domain
-      run: echo "Update domain.."
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install NPM packages
+        run: npm install
+      - name: Deploy to GH pages
+        run: npm run deploy
+      - name: Update domain
+        run: echo "Update domain.."

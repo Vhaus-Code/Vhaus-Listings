@@ -21,65 +21,89 @@ export default function App() {
   };
   const [state, setState] = useState(defaultState);
 
+  function filterItemByCategoryAndValue(categorySelect, searchString) {
+    return listings
+      .filter((item) => item.industry.includes(categorySelect))
+      .map((item) => ({
+        ...item,
+        listings: filterItemByValue(item, searchString),
+      }));
+  }
+
+  function filterItemByValue(listItem, searchString) {
+    return listItem.listings.filter(
+      (list) =>
+        list.businessName.toLowerCase().includes(searchString.toLowerCase()) ||
+        list.servicesOffered.toLowerCase().includes(searchString.toLowerCase())
+    );
+  }
+
   function handleInputChange(event) {
-    const value = event.target.value;
+    const searchString = event.target.value;
     let industryFilter;
-    if (value && state.searchCategory && state.searchCategory !== "ALL") {
-      industryFilter = listings
-        .filter((item) => item.industry.includes(state.searchCategory))
-        .map((item) => ({
-          ...item,
-          listings: item.listings.filter(
-            (list) =>
-              list.businessName.toLowerCase().includes(value.toLowerCase()) ||
-              list.servicesOffered.toLowerCase().includes(value.toLowerCase())
-          ),
-        }));
-    } else if (value) {
+    if (state.searchCategory !== "ALL") {
+      industryFilter = filterItemByCategoryAndValue(
+        state.searchCategory,
+        searchString
+      );
+    } else if (searchString && state.searchCategory === "ALL") {
       industryFilter = listings.map((item) => ({
         ...item,
-        listings: item.listings.filter(
-          (list) =>
-            list.businessName.toLowerCase().includes(value.toLowerCase()) ||
-            list.servicesOffered.toLowerCase().includes(value.toLowerCase())
-        ),
+        listings: filterItemByValue(item, searchString),
       }));
     } else {
-      industryFilter = state.listingsData;
+      industryFilter = listings;
     }
     setState({
       ...state,
-      searchString: value,
+      searchString: searchString,
       listingsData: industryFilter,
     });
   }
+
   function handleSelectChange(event) {
-    const value = event.target.value;
-    if (value === "ALL") {
+    const categorySelect = event.target.value;
+    if (categorySelect === "ALL") {
       setState({
         ...state,
         searchString: "",
-        searchCategory: value,
+        searchCategory: categorySelect,
         listingsData: listings,
       });
     } else {
-      const returnedData = listings
-        .filter((item) => item.industry.includes(value))
-        .map((item) => ({
-          ...item,
-          listings: item.listings.filter(
-            (list) =>
-              list.businessName.toLowerCase().includes(value.toLowerCase()) ||
-              list.servicesOffered.toLowerCase().includes(value.toLowerCase())
-          ),
-        }));
       setState({
         ...state,
-        searchCategory: value,
-        listingsData: returnedData,
+        searchCategory: categorySelect,
+        listingsData: filterItemByCategoryAndValue(
+          categorySelect,
+          state.searchString
+        ),
       });
     }
   }
+  const GetListingsData = () => {
+    return state.listingsData
+      .map((industry) => {
+        return industry.listings.map((listItem, key) => (
+          <Grid item xs={12} md={4} key={key}>
+            <ListGroup
+              key={key}
+              listItem={listItem}
+              colorCode={industry.colorCode}
+            />
+          </Grid>
+        ));
+      })
+      .filter(({ length }) => length > 0);
+  };
+
+  const EmptySearch = () => (
+    <Grid item xs={12} md={12} textAlign={"center"}>
+      <Typography variant="h5" color="error.main">
+        No results found, try a different search or selection
+      </Typography>
+    </Grid>
+  );
 
   return (
     <div>
@@ -94,24 +118,10 @@ export default function App() {
             handleSelectChange={handleSelectChange}
           />
           <Grid container spacing={2}>
-            {state.listingsData ? (
-              state.listingsData.map((industry) => {
-                return industry.listings.map((listItem, key) => (
-                  <Grid item xs={12} md={4} key={key}>
-                    <ListGroup
-                      key={key}
-                      listItem={listItem}
-                      colorCode={industry.colorCode}
-                    />
-                  </Grid>
-                ));
-              })
+            {GetListingsData().length > 0 ? (
+              <GetListingsData />
             ) : (
-              <Grid item xs={12} md={12}>
-                <Typography variant="h5" color="text.secondary">
-                  No results found, try a different search or selection
-                </Typography>
-              </Grid>
+              <EmptySearch />
             )}
           </Grid>
           <CopyrightFooter />
